@@ -40,6 +40,10 @@ object SettingsDownloadScreen : SearchableSettings {
         val downloadPreferences = remember { Injekt.get<DownloadPreferences>() }
         return listOf(
             Preference.PreferenceItem.SwitchPreference(
+                pref = downloadPreferences.sendDownloadRequestsOnly(),
+                title = "Send download requests only",
+            ),
+            Preference.PreferenceItem.SwitchPreference(
                 pref = downloadPreferences.downloadOnlyOverWifi(),
                 title = stringResource(MR.strings.connected_to_wifi),
             ),

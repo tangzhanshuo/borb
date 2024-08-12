@@ -52,6 +52,15 @@ android {
         }
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = rootProject.file("signingkey.jks")
+            storePassword = "12345678"
+            keyAlias = "key0"
+            keyPassword = "12345678"
+        }
+    }
+
     buildTypes {
         named("debug") {
             versionNameSuffix = "-${getCommitCount()}"
@@ -69,6 +78,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             setProguardFiles(listOf(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"))
+            signingConfig = signingConfigs.getByName("release")
         }
         create("benchmark") {
             initWith(getByName("release"))

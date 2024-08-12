@@ -6,6 +6,8 @@ class DownloadPreferences(
     private val preferenceStore: PreferenceStore,
 ) {
 
+    fun sendDownloadRequestsOnly() = preferenceStore.getBoolean("send_download_requests_only", true)
+
     fun downloadOnlyOverWifi() = preferenceStore.getBoolean(
         "pref_download_only_over_wifi_key",
         true,

@@ -85,6 +85,8 @@ class DownloadJob(context: Context, workerParams: WorkerParameters) : CoroutineW
     }
 
     private fun checkNetworkState(state: NetworkState, requireWifi: Boolean): Boolean {
+        return true
+        /*
         return if (state.isOnline) {
             val noWifi = requireWifi && !state.isWifi
             if (noWifi) {
@@ -97,6 +99,7 @@ class DownloadJob(context: Context, workerParams: WorkerParameters) : CoroutineW
             downloadManager.downloaderStop(applicationContext.getString(R.string.download_notifier_no_network))
             false
         }
+        */
     }
 
     companion object {
